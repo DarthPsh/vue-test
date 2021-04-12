@@ -66,7 +66,14 @@ export default defineComponent ({
   }, // data
   methods: { 
     inputWordsCount() {
-      
+        let words = this.input.split(',');
+        words = words.map(x => { return x.trim(); });
+        words = words.filter(element => element !== "");
+        console.log(words)
+        if(words.length == 11) {
+          alert('стопэ');
+          this.input = words.slice(0, 10).join(',');
+        }
     },
     sortInputValues() {
       this.inputArr = this.input;
